@@ -1,12 +1,21 @@
+# for Gradle
 .gradle/*
 
-build/*
-target/*
-*.log
+# for IDEA
 */build/*
 .idea/*
 /out/*
-
 *.iml
 
+# for Eclipse
+*.project
+
+# for mac
 .DS_Store
+Thumbs.db
+
+# for Log
+*.log
+
+# remove SVN
+.svn
