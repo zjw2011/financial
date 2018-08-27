@@ -14,3 +14,17 @@ ext {
             ]
     ]
 }
+
+//ext {
+//    libs = [
+//            common : [
+//                    "org.springframework.boot:spring-boot-starter-web",
+//                    "org.springframework.boot:spring-boot-starter-data-jpa",
+//                    "org.apache.commons:commons-lang3:3.5",
+//                    "com.h2database:h2:1.4.195"
+//            ],
+//            test   : [
+//                    "org.springframework.boot:spring-boot-starter-test"
+//            ]
+//    ]
+//}

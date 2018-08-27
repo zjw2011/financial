@@ -2,6 +2,7 @@
 .gradle/*
 
 # for IDEA
+build/*
 */build/*
 .idea/*
 /out/*
