@@ -1,6 +1,3 @@
-group 'io.sanye.open'
-version '1.0.0-SNAPSHOT'
-
 //buildscript {
 //    repositories {
 //        maven {
@@ -14,6 +11,11 @@ version '1.0.0-SNAPSHOT'
 //}
 
 apply from: "$rootDir/dependencies.gradle"
+
+allprojects {
+    group 'io.sanye.open'
+    version '1.0.0-SNAPSHOT'
+}
 
 subprojects {
     apply plugin: 'java'
