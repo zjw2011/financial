@@ -1,23 +1,25 @@
-# Compiled class file
-*.class
+# for Gradle
+.gradle/*
 
-# Log file
+# for IDEA
+build/*
+*/build/*
+.idea/*
+/out/*
+*.iml
+
+# for Eclipse
+*.project
+
+# for mac
+.DS_Store
+Thumbs.db
+
+# for Log
 *.log
 
-# BlueJ files
-*.ctxt
+# remove SVN
+.svn
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+#target
+*/target/*

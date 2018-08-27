@@ -1,0 +1,51 @@
+group 'io.sanye.open'
+version '1.0.0-SNAPSHOT'
+
+//buildscript {
+//    repositories {
+//        maven {
+//            url = 'https://maven.aliyun.com/repository/gradle-plugin'
+//        }
+//        jcenter()
+//    }
+//    dependencies {
+//        classpath 'io.spring.gradle:dependency-management-plugin:1.0.0.RELEASE'
+//    }
+//}
+
+apply from: "$rootDir/dependencies.gradle"
+
+subprojects {
+    apply plugin: 'java'
+    //apply plugin: 'war'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+//    apply plugin: 'io.spring.dependency-management'
+//    dependencyManagement {
+//        imports {
+//            mavenBom 'io.spring.platform:platform-bom:Brussels-SR12'
+//        }
+//    }
+
+    repositories {
+        maven {
+            url = 'https://maven.aliyun.com/repository/jcenter'
+        }
+        maven {
+            url = 'https://maven.aliyun.com/repository/central'
+        }
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        compile libs.common
+        testCompile libs.test
+    }
+
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+}
+
+
