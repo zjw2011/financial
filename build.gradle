@@ -6,7 +6,8 @@
 //        jcenter()
 //    }
 //    dependencies {
-//        classpath 'io.spring.gradle:dependency-management-plugin:1.0.0.RELEASE'
+//        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.15.RELEASE")
+//        //classpath 'io.spring.gradle:dependency-management-plugin:1.0.0.RELEASE'
 //    }
 //}
 
@@ -19,8 +20,9 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
+//    apply plugin: 'spring-boot'
 //    apply plugin: 'application'
-    //apply plugin: 'war'
+//    apply plugin: 'war'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
