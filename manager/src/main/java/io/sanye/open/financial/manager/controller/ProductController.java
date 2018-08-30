@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.sanye.open.financial.entity.Product;
 import io.sanye.open.financial.manager.service.ProductService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * desc.
@@ -29,6 +31,7 @@ import io.sanye.open.financial.manager.service.ProductService;
  */
 @RestController
 @RequestMapping("/products")
+@Api(tags = "产品",description = "增删改产品")
 public class ProductController {
 
     private static Logger LOG = LoggerFactory.getLogger(ProductController.class);
@@ -36,6 +39,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @ApiOperation(value = "创建产品", notes = "根据对应业务规则添加响应的产品")
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Product addProduct(@RequestBody Product product) {
         LOG.info("创建产品, 参数:{}", product);
