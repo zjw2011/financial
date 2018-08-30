@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author jiawei zhang
  */
 @SpringBootApplication
+//@EnableMySwagger
 public class ManagerApp {
     public static void main(String[] args) {
         SpringApplication.run(ManagerApp.class, args);

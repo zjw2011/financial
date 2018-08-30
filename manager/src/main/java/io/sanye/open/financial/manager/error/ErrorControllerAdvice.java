@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 2018/8/30 下午3:31
  */
 //@ControllerAdvice 默认是所有的
-@ControllerAdvice(basePackages = { "io.sanye.open.financial.manager.controller"})
+//@ControllerAdvice(basePackages = { "io.sanye.open.financial.manager.controller"})
 public class ErrorControllerAdvice {
 
     @ExceptionHandler(Exception.class)
