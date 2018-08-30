@@ -1,15 +1,15 @@
-//buildscript {
-//    repositories {
-//        maven {
-//            url = 'https://maven.aliyun.com/repository/gradle-plugin'
-//        }
-//        jcenter()
-//    }
-//    dependencies {
-//        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.15.RELEASE")
-//        //classpath 'io.spring.gradle:dependency-management-plugin:1.0.0.RELEASE'
-//    }
-//}
+buildscript {
+    repositories {
+        maven {
+            url = 'https://maven.aliyun.com/repository/gradle-plugin'
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.15.RELEASE")
+        //classpath 'io.spring.gradle:dependency-management-plugin:1.0.0.RELEASE'
+    }
+}
 
 apply from: "$rootDir/dependencies.gradle"
 
@@ -20,9 +20,11 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-//    apply plugin: 'spring-boot'
+    //打包成Springboot的胖jar包的格式
+    apply plugin: 'spring-boot'
+//    apply plugin: 'idea'
 //    apply plugin: 'application'
-    apply plugin: 'war'
+//    apply plugin: 'war'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
