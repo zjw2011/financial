@@ -18,4 +18,11 @@ public interface ProductRpc {
      * 查询多个产品.
      */
     List<Product> query(ProductRpcReq req);
+
+    /**
+     * 查询单个产品.
+     * @param id 产品ID
+     * @return
+     */
+    Product findOne(String id);
 }

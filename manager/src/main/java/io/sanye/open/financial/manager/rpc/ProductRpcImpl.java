@@ -43,4 +43,15 @@ public class ProductRpcImpl implements ProductRpc {
         LOG.info("查询多个产品,结果:{}", result);
         return result.getContent();
     }
+
+    @Override
+    public Product findOne(String id) {
+        LOG.info("查询单个产品,请求ID:", id);
+
+
+        Product result = productService.findOne(id);
+
+        LOG.info("查询单个产品,结果:{}", result);
+        return result;
+    }
 }

@@ -1,6 +1,5 @@
 package io.sanye.open.financial.seller.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -8,14 +7,11 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import io.sanye.open.financial.api.ProductRpc;
 import io.sanye.open.financial.api.domain.ProductRpcReq;
 import io.sanye.open.financial.entity.Product;
-import io.sanye.open.financial.entity.enums.ProductStatus;
-import springfox.documentation.builders.RequestHandlerSelectors;
 
 /**
  * desc.
@@ -47,12 +43,25 @@ public class ProductRpcService {
         List<Product> result = productRpc.query(req);
         LOG.info("rpc查询全部产品，结果:{}", result);
 
-        return null;
+        return result;
+    }
+
+    //@PostConstruct
+    public void testFindAll() {
+        findAll();
+    }
+
+    public Product findOne(String id) {
+        LOG.info("rpc查询全部产品，请求ID:{}", id);
+        Product result = productRpc.findOne(id);
+        LOG.info("rpc查询全部产品，结果:{}", result);
+
+        return result;
     }
 
     @PostConstruct
-    public void testFindAll() {
-        findAll();
+    public void testFindOne() {
+        findOne("T001");
     }
 
 }
