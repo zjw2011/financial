@@ -8,7 +8,6 @@ rpc:
 logging:
   level:
     com.googlecode.jsonrpc4j: debug
-#    basePackage: io.sanye.open.financial.api
 
 
 
