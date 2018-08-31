@@ -1,0 +1,12 @@
+server:
+  context-path: /seller
+  port: 8082
+rpc:
+  manager:
+    url: http://localhost:8080/manager/
+#    basePackage: io.sanye.open.financial.api
+
+
+
+
+

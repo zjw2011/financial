@@ -21,7 +21,7 @@ allprojects {
 subprojects {
     apply plugin: 'java'
     //打包成Springboot的胖jar包的格式
-    apply plugin: 'spring-boot'
+    apply plugin: 'org.springframework.boot'
 //    apply plugin: 'idea'
 //    apply plugin: 'application'
 //    apply plugin: 'war'
