@@ -1,0 +1,23 @@
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    time-zone: GMT+8
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/manager?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+server:
+  context-path: /manager
+swagger:
+  groupName: manager
+  basePackage: io.sanye.open.financial.manager.controller
+logging:
+  level:
+    com.googlecode.jsonrpc4j: debug
+
+
+

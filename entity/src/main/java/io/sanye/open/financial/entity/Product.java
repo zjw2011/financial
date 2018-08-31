@@ -7,12 +7,17 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * 产品.
  *
  * @author jiawei zhang
  */
 @Entity
+@ApiModel
 public class Product implements Serializable {
 
     private static final long serialVersionUID = -4434503852360873289L;
@@ -22,6 +27,10 @@ public class Product implements Serializable {
 
     private String name;
 
+    /**
+     * @see io.sanye.open.financial.entity.enums.ProductStatus
+     */
+    @ApiModelProperty(value = "状态", dataType = "io.sanye.open.financial.entity.enums.ProductStatus")
     private String status;
 
     /**
@@ -46,8 +55,10 @@ public class Product implements Serializable {
 
     private String memo;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     private Date createAt;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     private Date updateAt;
 
     private String createUser;
@@ -55,6 +66,15 @@ public class Product implements Serializable {
     private String updateUser;
 
     public Product() {
+    }
+
+    public Product(String id, String name, String status, BigDecimal thresholdAmount, BigDecimal stepAmount, BigDecimal rewardRate) {
+        this.id = id;
+        this.name = name;
+        this.status = status;
+        this.thresholdAmount = thresholdAmount;
+        this.stepAmount = stepAmount;
+        this.rewardRate = rewardRate;
     }
 
     public String getId() {
