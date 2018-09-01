@@ -38,9 +38,9 @@ public class ProductCache {
 
     @Cacheable(cacheNames = CACHE_NAME)
     public Product readCache(String id) {
-        LOG.info("rpc查询全部产品，请求ID:{}", id);
+        LOG.info("rpc查询单一产品，请求ID:{}", id);
         Product result = productRpc.findOne(id);
-        LOG.info("rpc查询全部产品，结果:{}", result);
+        LOG.info("rpc查询单一产品，结果:{}", result);
 
         return result;
     }

@@ -2,18 +2,15 @@ package io.sanye.open.financial.seller.service;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Service;
 
-import io.sanye.open.financial.api.ProductRpc;
-import io.sanye.open.financial.api.domain.ProductRpcReq;
+import io.sanye.open.financial.api.events.ProductStatusEvent;
 import io.sanye.open.financial.entity.Product;
 
 /**
@@ -26,6 +23,7 @@ import io.sanye.open.financial.entity.Product;
 public class ProductRpcService implements ApplicationListener<ContextRefreshedEvent> {
     private static Logger LOG = LoggerFactory.getLogger(ProductRpcService.class);
 
+    private static final String MQ_DESTINATION = "Consumer.CACHE.VirtualTopic.PRODUCT_STATUS";
 
     @Autowired
     private ProductCache productCache;
@@ -64,5 +62,14 @@ public class ProductRpcService implements ApplicationListener<ContextRefreshedEv
         products.forEach(product -> {
             productCache.putCache(product);
         });
+    }
+
+    @JmsListener(destination = MQ_DESTINATION)
+    private void updateCache(ProductStatusEvent event) {
+        LOG.info("receive event: {}", event);
+        productCache.removeCache(event.getId());
+        //if (event.getProductStatus().equals(ProductStatus.IN_SELL)) {
+            productCache.readCache(event.getId());
+        //}
     }
 }

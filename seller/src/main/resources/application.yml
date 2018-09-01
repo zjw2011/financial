@@ -11,6 +11,10 @@ logging:
 spring:
   cache:
     type: hazelcast
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    packages:
+      trust-all: true
 
 
 
