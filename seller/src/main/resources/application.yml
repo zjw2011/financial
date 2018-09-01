@@ -3,11 +3,14 @@ server:
   port: 8082
 rpc:
   client:
-    url: http://localhost:8080/manager/
+    url: http://localhost:8081/manager/
     basePackage: io.sanye.open.financial.api
 logging:
   level:
     com.googlecode.jsonrpc4j: debug
+spring:
+  cache:
+    type: hazelcast
 
 
 

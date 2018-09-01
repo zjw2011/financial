@@ -12,6 +12,7 @@ spring:
     show-sql: true
 server:
   context-path: /manager
+  port: 8081
 swagger:
   groupName: manager
   basePackage: io.sanye.open.financial.manager.controller

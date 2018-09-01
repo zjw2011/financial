@@ -2,7 +2,7 @@ package io.sanye.open.financial.seller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * desc.
@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
  * 2018/8/31 上午11:23
  */
 @SpringBootApplication
+@EnableCaching
 public class SellerApp {
 
     public static void main(String[] args) {
