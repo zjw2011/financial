@@ -15,6 +15,13 @@ spring:
     broker-url: tcp://127.0.0.1:61616
     packages:
       trust-all: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/seller?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
 
 
 

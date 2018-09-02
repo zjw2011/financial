@@ -1,29 +1,22 @@
-package io.sanye.open.financial.entity;
+package io.sanye.open.financial.seller.params;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.sanye.open.financial.seller.sign.SignText;
 
 /**
- * 订单.
+ * 下单请求参数.
+ *
+ * @author jiawei zhang
+ * 2018/9/2 下午7:36
  */
-@Entity(name = "order_t")
-public class Order {
-    @Id
-    private String orderId;
+public class OrderParam implements SignText {
 
-    /**
-     * 渠道id.
-     */
     private String chanId;
 
     private String chanUserId;
-
-    private String orderType;
 
     private String productId;
 
@@ -31,23 +24,11 @@ public class Order {
 
     private String outerOrderId;
 
-    private String orderStatus;
-
     private String memo;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createAt;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date updateAt;
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
 
     public String getChanId() {
         return chanId;
@@ -63,14 +44,6 @@ public class Order {
 
     public void setChanUserId(String chanUserId) {
         this.chanUserId = chanUserId;
-    }
-
-    public String getOrderType() {
-        return orderType;
-    }
-
-    public void setOrderType(String orderType) {
-        this.orderType = orderType;
     }
 
     public String getProductId() {
@@ -97,14 +70,6 @@ public class Order {
         this.outerOrderId = outerOrderId;
     }
 
-    public String getOrderStatus() {
-        return orderStatus;
-    }
-
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
     public String getMemo() {
         return memo;
     }
@@ -121,28 +86,17 @@ public class Order {
         this.createAt = createAt;
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
-    }
-
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
-    }
 
     @Override
     public String toString() {
-        return "Order{" +
-                "orderId='" + orderId + '\'' +
-                ", chanId='" + chanId + '\'' +
+        return "OrderParam{" +
+                "chanId='" + chanId + '\'' +
                 ", chanUserId='" + chanUserId + '\'' +
-                ", orderType='" + orderType + '\'' +
                 ", productId='" + productId + '\'' +
                 ", amount=" + amount +
                 ", outerOrderId='" + outerOrderId + '\'' +
-                ", orderStatus='" + orderStatus + '\'' +
                 ", memo='" + memo + '\'' +
                 ", createAt=" + createAt +
-                ", updateAt=" + updateAt +
                 '}';
     }
 }

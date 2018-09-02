@@ -1,7 +1,5 @@
 package io.sanye.open.financial.manager.service;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +31,7 @@ public class ProductStatusManager {
         jmsTemplate.convertAndSend(MQ_DESTINATION, event);
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void init() {
         changeStatus("T001", ProductStatus.FINISHED);
     }
